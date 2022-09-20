@@ -1,0 +1,21 @@
+
+//требования
+test('it pass', () => {
+    c = new Cache();
+    c.set("name","John",3);
+    c.get("name");//John; 3=>2
+    c.get("name");//John; 2=>1
+    c.get("name");//John; 1=>0 и удалился этот элемент
+    c.get("name");//null
+    c.get("age");//null
+    c.set("color","red");
+    c.get("color");//red; 1=>0 и удалится этот элемент
+    //7. Нужна возможность получить статистику работы кэша в виде списка обращений:   Ключ, Значение, Сколько осталось обращений
+});
+
+describe('unknown key', () => {
+    it('should returns null if cache has no this key', () => {
+    c = new Cache();
+    expect(c.get("name")).toBeNull()
+    })
+})
